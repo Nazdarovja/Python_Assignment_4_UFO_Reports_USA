@@ -1,5 +1,5 @@
 import pandas as pd
-
+import statistics
 import utils.downloader as downloader
 
 
@@ -16,6 +16,9 @@ if __name__ == '__main__':
                                  'comments', 'date posted', 'latitude', 'longitude'])
 
 #1. Hvilket sted er der flest UFO observationer?
+print('Hvilket sted er der flest UFO observationer?')
+res = statistics.most_UFOs_observed(data_df)
+print(f'Stedet med flest UFO obserervationer er {res[0]} med {res[1]} observationer')
 
 #2. Hvordan har antallet af observationer udviklet sig over tid? ####### THIS SHOULD BE A PLOT ###########
 
