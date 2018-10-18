@@ -1,4 +1,5 @@
 import pandas as pd
+import plotting
 
 ##  headers ['datetime', 'city', 'state', 'country', 'shape', 'duration (seconds)', 'duration (hours/min)', 'comments', 'date posted', 'latitude', 'longitude']
 
@@ -10,3 +11,11 @@ def most_UFOs_observed(data_df):
     df = data_df['city'].value_counts().reset_index()
     ## return the first row, as the data is descending.
     return df[:1].values[0]
+
+def observations_per_year(data_df):
+    """
+    Given pandas dataframe, this method will create a plot of the count of sightings per year.
+    """
+    print(type(data_df['datetime'][2]))
+    # mask = data_df[data_df['datetime']
+    # pd.value_counts( )
