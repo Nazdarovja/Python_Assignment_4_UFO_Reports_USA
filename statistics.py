@@ -27,4 +27,6 @@ def month_with_most_observations(data_df):
 def sigthing_length_of_ufo(data_df):
     data_df['duration(seconds)'] = pd.to_numeric(data_df["duration(seconds)"], errors='coerce')
     total = data_df['duration(seconds)'].sum()
-    return (total / data_df.size).astype(int)
+    minutes = (total / data_df.size / 60).astype(int)
+    seconds = (total / data_df.size % 60).astype(int)
+    return f'{minutes} minutes and {seconds} seconds'

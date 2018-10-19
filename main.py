@@ -39,4 +39,4 @@ print(f'Måneden med flest observationer er {month}')
 
 # 5. Hvor lang tid kunne de se ufoen(gennemsnit)?
 timespan = statistics.sigthing_length_of_ufo(data_df)
-print(f'Gennemsnitlig tid: {timespan} seconds')
+print(f'Gennemsnitlig tid: {timespan}')
