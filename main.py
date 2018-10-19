@@ -19,7 +19,7 @@ if __name__ == '__main__':
     # Get file as pandas csv and add missing header column 11/20/1995 19:12
     data_df = pd.read_csv(file_name, low_memory=False, encoding='utf8',
                           names=['datetime', 'city', 'state', 'country',
-                                 'shape', 'duration (seconds)', 'duration (hours/min)',
+                                 'shape', 'duration(seconds)', 'duration (hours/min)',
                                  'comments', 'date posted', 'latitude', 'longitude']
                              , parse_dates=['datetime'], date_parser=date_parser)
 
@@ -31,6 +31,7 @@ print(
 
 #2. Hvordan har antallet af observationer udviklet sig over tid? ####### THIS SHOULD BE A PLOT ###########
 statistics.observations_per_year(data_df)
+
 # 3. Hvornår på året er der flest observationer?
 month = statistics.month_with_most_observations(data_df)
 print(f'Måneden med flest observationer er {month}')
@@ -41,3 +42,5 @@ shapes = statistics.shape_of_UFO(data_df)
 print(f'Top 10 former af UFO\'er er :\n{shapes}')
 
 # 5. Hvor lang tid kunne de se ufoen(gennemsnit)?
+timespan = statistics.sigthing_length_of_ufo(data_df)
+print(f'Gennemsnitlig tid: {timespan}')

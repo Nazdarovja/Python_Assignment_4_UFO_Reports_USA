@@ -21,7 +21,6 @@ def observations_per_year(data_df):
     # mask = data_df[data_df['datetime']
     # pd.value_counts()
 
-
 def month_with_most_observations(data_df):
     month = data_df['datetime'].groupby([data_df['datetime'].dt.month]).count()
     return [calendar.month_name[month.idxmax()], month.loc[month.idxmax()]]
@@ -38,3 +37,10 @@ def shape_of_UFO(data_df):
 
     # map the list to contain formatted strings, then join it to single string with new lines.
     return '\n'.join(map(lambda l : f'{l[0]} mentioned: {l[1]} times', shape_top_ten_list))
+
+def sigthing_length_of_ufo(data_df):
+    data_df['duration(seconds)'] = pd.to_numeric(data_df["duration(seconds)"], errors='coerce')
+    total = data_df['duration(seconds)'].sum()
+    minutes = (total / data_df.size / 60).astype(int)
+    seconds = (total / data_df.size % 60).astype(int)
+    return f'{minutes} minutes and {seconds} seconds'
