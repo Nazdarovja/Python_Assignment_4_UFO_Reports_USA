@@ -44,3 +44,15 @@ print(f'Top 10 former af UFO\'er er :\n{shapes}')
 # 5. Hvor lang tid kunne de se ufoen(gennemsnit)?
 timespan = statistics.sigthing_length_of_ufo(data_df)
 print(f'Gennemsnitlig tid: {timespan}')
+
+#  6. På hvilke dage er det sandsynligt at se ufoer(i procentvis fordeling)?
+# x i plottet er mandag til søndag.
+# y i plottet er 0 til 1.
+
+# 7. Lav en graf over polaritet og sentiment.
+# x i plottet er index over observationer.
+# y i plottet er 0 til 1.
+statistics.polarity_sentiment_plot(data_df)
+
+# 8. Lav et plot, der viser antallet af ufo observationer pr stat i USA, og farvekode jeres resultat. 
+# Mørk farve indiker mange observationer, og lys farve indiker få observationer.

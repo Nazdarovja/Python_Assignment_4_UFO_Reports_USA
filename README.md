@@ -13,11 +13,12 @@ URL to the dataset is in the code and is (https://github.com/planetsig/ufo-repor
 ## How to run (from CLI)
 In root of folder, in your terminal of choice, write:
 
+> First install TextBlob library
+```$pip install -U textblob ```
+
+> To run project
 ```python main.py```
 
-### example:
-
-```python main.py```
 
 ## Results
 

@@ -1,7 +1,8 @@
 import pandas as pd
 import plotting
 import calendar
-import utils
+import utils.util as util
+
 ##  headers ['datetime', 'city', 'state', 'country', 'shape', 'duration (seconds)', 'duration (hours/min)', 'comments', 'date posted', 'latitude', 'longitude']
 
 def most_UFOs_observed(data_df):
@@ -44,3 +45,26 @@ def sigthing_length_of_ufo(data_df):
     minutes = (total / data_df.size / 60).astype(int)
     seconds = (total / data_df.size % 60).astype(int)
     return f'{minutes} minutes and {seconds} seconds'
+
+
+
+def polarity_sentiment_plot(data_df):
+    """
+    Given pandas dataframe, runs Sentiment analasys on the comments of the experience,
+    then creates a plot with the data.
+    """
+    # Run the sentiment analasys on the comments, and add it as a row to the dataframe
+    data_df['sentiment'] = data_df['comments'].apply(util.sentiment_calc)
+    
+    # Create and add to new dataframe the values of the NamedTuple Sentiment (datatype of TextBlob analysis)
+    sentiment_df = pd.DataFrame(columns=['polarity', 'subjectivity'])
+    
+    # Unpack the values to columns in dataframe 
+    # zip(*) the * means that it will run through all arguments in the column and unpack them
+    sentiment_df['polarity'], sentiment_df['subjectivity'] = zip(*data_df.sentiment)
+    
+    # Create lists to be used for plotting
+    polarity = sentiment_df['polarity'].values.tolist()
+    subjectivity = sentiment_df['subjectivity'].values.tolist()
+
+    plotting.plot_sentiment_polarity_per_case(polarity, subjectivity)
