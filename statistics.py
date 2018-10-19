@@ -20,7 +20,11 @@ def observations_per_year(data_df):
     # mask = data_df[data_df['datetime']
     # pd.value_counts()
 
-
 def month_with_most_observations(data_df):
     month = data_df['datetime'].groupby([data_df['datetime'].dt.month]).count()
     return [calendar.month_name[month.idxmax()], month.loc[month.idxmax()]]
+
+def sigthing_length_of_ufo(data_df):
+    data_df['duration(seconds)'] = pd.to_numeric(data_df["duration(seconds)"], errors='coerce')
+    total = data_df['duration(seconds)'].sum()
+    return (total / data_df.size).astype(int)

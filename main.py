@@ -19,7 +19,7 @@ if __name__ == '__main__':
     # Get file as pandas csv and add missing header column 11/20/1995 19:12
     data_df = pd.read_csv(file_name, low_memory=False, encoding='utf8',
                           names=['datetime', 'city', 'state', 'country',
-                                 'shape', 'duration (seconds)', 'duration (hours/min)',
+                                 'shape', 'duration(seconds)', 'duration (hours/min)',
                                  'comments', 'date posted', 'latitude', 'longitude']
                              , parse_dates=['datetime'], date_parser=date_parser)
 
@@ -38,3 +38,5 @@ print(f'Måneden med flest observationer er {month}')
 # 4. Hvordan ser en ufo ud?
 
 # 5. Hvor lang tid kunne de se ufoen(gennemsnit)?
+timespan = statistics.sigthing_length_of_ufo(data_df)
+print(f'Gennemsnitlig tid: {timespan} seconds')
