@@ -50,8 +50,11 @@ print(f'Gennemsnitlig tid: {timespan}')
 # y i plottet er 0 til 1.
 
 # 7. Lav en graf over polaritet og sentiment.
-# x i plottet er index over observationer.
-# y i plottet er 0 til 1.
+#######################################################
+# We/I have chosen to do y-axis from -1 to 1 because, 
+# the negative numbers are the negative polarities
+# (else everyting is positive which makes no sense...)
+#######################################################
 statistics.polarity_sentiment_plot(data_df)
 
 # 8. Lav et plot, der viser antallet af ufo observationer pr stat i USA, og farvekode jeres resultat. 
