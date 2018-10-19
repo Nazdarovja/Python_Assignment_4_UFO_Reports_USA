@@ -1,6 +1,7 @@
 import pandas as pd
 import plotting
 import calendar
+import utils
 ##  headers ['datetime', 'city', 'state', 'country', 'shape', 'duration (seconds)', 'duration (hours/min)', 'comments', 'date posted', 'latitude', 'longitude']
 
 def most_UFOs_observed(data_df):
@@ -24,3 +25,16 @@ def observations_per_year(data_df):
 def month_with_most_observations(data_df):
     month = data_df['datetime'].groupby([data_df['datetime'].dt.month]).count()
     return [calendar.month_name[month.idxmax()], month.loc[month.idxmax()]]
+
+def shape_of_UFO(data_df):
+    """
+    Given pandas dataframe, this method will return the top 10 as a string.
+    """
+    # Counts all occurances of unique words in column, and indexes them
+    df = data_df['shape'].value_counts().reset_index()
+    
+    # Get the top 10 values and cast to list of lists
+    shape_top_ten_list = df[:10].values.tolist()
+
+    # map the list to contain formatted strings, then join it to single string with new lines.
+    return '\n'.join(map(lambda l : f'{l[0]} mentioned: {l[1]} times', shape_top_ten_list))

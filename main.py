@@ -36,5 +36,8 @@ month = statistics.month_with_most_observations(data_df)
 print(f'Måneden med flest observationer er {month}')
 
 # 4. Hvordan ser en ufo ud?
+print('4. Hvordan ser en ufo ud?\n')
+shapes = statistics.shape_of_UFO(data_df)
+print(f'Top 10 former af UFO\'er er :\n{shapes}')
 
 # 5. Hvor lang tid kunne de se ufoen(gennemsnit)?
