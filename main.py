@@ -32,6 +32,8 @@ print(
 #2. Hvordan har antallet af observationer udviklet sig over tid? ####### THIS SHOULD BE A PLOT ###########
 statistics.observations_per_year(data_df)
 # 3. Hvornår på året er der flest observationer?
+month = statistics.month_with_most_observations(data_df)
+print(f'Måneden med flest observationer er {month}')
 
 # 4. Hvordan ser en ufo ud?
 

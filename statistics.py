@@ -1,6 +1,6 @@
 import pandas as pd
 import plotting
-
+import calendar
 ##  headers ['datetime', 'city', 'state', 'country', 'shape', 'duration (seconds)', 'duration (hours/min)', 'comments', 'date posted', 'latitude', 'longitude']
 
 def most_UFOs_observed(data_df):
@@ -18,4 +18,9 @@ def observations_per_year(data_df):
     """
     print(type(data_df['datetime'][2]))
     # mask = data_df[data_df['datetime']
-    # pd.value_counts( )
+    # pd.value_counts()
+
+
+def month_with_most_observations(data_df):
+    month = data_df['datetime'].groupby([data_df['datetime'].dt.month]).count()
+    return [calendar.month_name[month.idxmax()], month.loc[month.idxmax()]]
