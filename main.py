@@ -3,6 +3,8 @@ import numpy as np
 import statistics
 import utils.downloader as downloader
 
+def date_parser(date_to_parse):
+    return pd.to_datetime(date_to_parse, format="%m/%d/%Y", exact=False)
 
 if __name__ == '__main__':
     file_name = 'ufo_data.csv'
@@ -19,11 +21,7 @@ if __name__ == '__main__':
                           names=['datetime', 'city', 'state', 'country',
                                  'shape', 'duration (seconds)', 'duration (hours/min)',
                                  'comments', 'date posted', 'latitude', 'longitude']
-                             )
-    ## THIS DOES NOT WORK FOR SOME REASON 
-    # ValueError: time data '10/11/2006 24:00' does not match format '%m/%d/%Y %H:%M
-    #data_df['datetime'] = pd.to_datetime(data_df['datetime'], format="%m/%d/%Y %H:%M")
-
+                             , parse_dates=['datetime'], date_parser=date_parser)
 
 # 1. Hvilket sted er der flest UFO observationer?
 print('Hvilket sted er der flest UFO observationer?')
