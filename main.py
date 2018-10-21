@@ -24,40 +24,43 @@ if __name__ == '__main__':
                              , parse_dates=['datetime'], date_parser=date_parser)
 
 # # 1. Hvilket sted er der flest UFO observationer?
-# print('Hvilket sted er der flest UFO observationer?')
-# res = statistics.most_UFOs_observed(data_df)
-# print(
-#     f'Stedet med flest UFO obserervationer er {res[0]} med {res[1]} observationer\n')
+print('1. Hvilket sted er der flest UFO observationer?')
+res = statistics.most_UFOs_observed(data_df)
+print(
+    f'Stedet med flest UFO obserervationer er {res[0]} med {res[1]} observationer\n')
 
-# #2. Hvordan har antallet af observationer udviklet sig over tid? ####### THIS SHOULD BE A PLOT ###########
-# statistics.observations_per_year(data_df)
+#2. Hvordan har antallet af observationer udviklet sig over tid? ####### THIS SHOULD BE A PLOT ###########
+print("2. Hvordan har antallet af observationer udviklet sig over tid?  - Se plot")
+statistics.observations_per_year(data_df)
 
 # # 3. Hvornår på året er der flest observationer?
-# month = statistics.month_with_most_observations(data_df)
-# print(f'Måneden med flest observationer er {month}')
+
+month = statistics.month_with_most_observations(data_df)
+print("3. Hvornår på året er der flest observationer?")
+print(f'Måneden med flest observationer er {month}')
 
 # # 4. Hvordan ser en ufo ud?
-# print('4. Hvordan ser en ufo ud?\n')
-# shapes = statistics.shape_of_UFO(data_df)
-# print(f'Top 10 former af UFO\'er er :\n{shapes}')
+print('4. Hvordan ser en ufo ud?\n')
+shapes = statistics.shape_of_UFO(data_df)
+print(f'Top 10 former af UFO\'er er :\n{shapes}')
 
 # # 5. Hvor lang tid kunne de se ufoen(gennemsnit)?
-# timespan = statistics.sigthing_length_of_ufo(data_df)
-# print(f'Gennemsnitlig tid: {timespan}')
+print("5. Hvor lang tid kunne de se ufoen(gennemsnit)")
+timespan = statistics.sigthing_length_of_ufo(data_df)
+print(f'Gennemsnitlig UFO set tid: {timespan}')
 
 # #  6. På hvilke dage er det sandsynligt at se ufoer(i procentvis fordeling)?
 # # x i plottet er mandag til søndag.
 # # y i plottet er 0 til 1.
 
 # # 7. Lav en graf over polaritet og sentiment.
-# #######################################################
-# # We/I have chosen to do y-axis from -1 to 1 because, 
-# # the negative numbers are the negative polarities
-# # (else everyting is positive which makes no sense...)
-# #######################################################
-# statistics.polarity_sentiment_plot(data_df)
+#######################################################
+# We/I have chosen to do y-axis from -1 to 1 because, 
+# the negative numbers are the negative polarities
+# (else everyting is positive which makes no sense...)
+#######################################################
+statistics.polarity_sentiment_plot(data_df)
 
 # # 8. Lav et plot, der viser antallet af ufo observationer pr stat i USA, og farvekode jeres resultat. 
 # # Mørk farve indiker mange observationer, og lys farve indiker få observationer.
-
 statistics.UFO_observation_per_state(data_df)

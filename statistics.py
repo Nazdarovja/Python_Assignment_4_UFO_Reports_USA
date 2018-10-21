@@ -93,13 +93,15 @@ def UFO_observation_per_state(data_df):
     df = from_us['state'].value_counts().reset_index()
 
     # instantiate a Folium map 
-    map = folium.Map(location=[48, -102], zoom_start=5)
+    map = folium.Map(location=[48, -102], zoom_start=3)
 
     # apply geoJSON overlay on the map
     map.choropleth(geo_data=my_USA_map, data=df,
                    columns=['index','state'],  
                    key_on='feature.id',
-                   fill_color='YlGn', fill_opacity=0.7, line_opacity=0.2)
+                   legend_name="UFO observations per state",
+                   fill_color='YlGn', fill_opacity=0.7, line_opacity=0.2,
+                   highlight=True)
 
     # save map as html
-    map.save('index.html')
+    map.save('plots_8.html')
