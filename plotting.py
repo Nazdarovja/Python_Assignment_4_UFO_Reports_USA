@@ -7,6 +7,12 @@ def plot_days_probability_of_UFO_sighting(days):
     plt.bar(x_values,days)
     plt.show()
 
+def plot_bar(values, freq, x_label, y_label='frequency'):
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.bar(values,freq)
+    plt.show()
+
 def plot_sentiment_polarity_per_case(polarity, subjectivity):
     """
     Given a list of ploarity values and subjectivity values, creates a plot for each index.

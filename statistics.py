@@ -18,9 +18,11 @@ def observations_per_year(data_df):
     """
     Given pandas dataframe, this method will create a plot of the count of sightings per year.
     """
-    print(type(data_df['datetime'][2]))
-    # mask = data_df[data_df['datetime']
-    # pd.value_counts()
+    ps = data_df['datetime'].groupby([data_df['datetime'].dt.year]).count()
+    values = ps.keys().tolist()
+    freq = ps.values.tolist()
+    plotting.plot_bar(values,freq,'year')
+
 
 def month_with_most_observations(data_df):
     month = data_df['datetime'].groupby([data_df['datetime'].dt.month]).count()
