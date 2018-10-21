@@ -1,13 +1,23 @@
 import matplotlib.pyplot as plt
 
 def plot_days_probability_of_UFO_sighting(days):
+    """
+    Given list of values for each day, will show a plot.
+    """
+    # Day values for x axis
     x_values = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun']  
-    plt.xlabel('days')
-    plt.ylabel('percentage')
+
+    # Add labels and plot
+    plt.xlabel('Days')
+    plt.ylabel('Percentage')
     plt.bar(x_values,days)
     plt.show()
 
 def plot_bar(values, freq, x_label, y_label='frequency'):
+    """
+    Given values, freq of values, and labels for plot, shows bar plot
+    """
+    # Set labels and plot
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.bar(values,freq)

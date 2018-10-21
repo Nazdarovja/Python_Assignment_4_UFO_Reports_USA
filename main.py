@@ -2,7 +2,9 @@ import pandas as pd
 import numpy as np
 import statistics
 import utils.downloader as downloader
-
+"""
+To run ´$python main.py´
+"""
 def date_parser(date_to_parse):
     return pd.to_datetime(date_to_parse, format="%m/%d/%Y", exact=False)
 

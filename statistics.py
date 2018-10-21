@@ -22,7 +22,10 @@ def observations_per_year(data_df):
     """
     Given pandas dataframe, this method creatse a plot of the count of sightings per year.
     """
+    # Gets each year present and then groups them and counts all occurances.
     ps = data_df['datetime'].groupby([data_df['datetime'].dt.year]).count()
+    
+    # Cast data to list for plotting
     values = ps.keys().tolist()
     freq = ps.values.tolist()
     plotting.plot_bar(values,freq,'year')
@@ -32,6 +35,7 @@ def month_with_most_observations(data_df):
     """
     Given pandas dataframe, this method returns the month with most observations and the count of observations.
     """
+    # Gets each month present and then groups them and counts all occurances.
     month = data_df['datetime'].groupby([data_df['datetime'].dt.month]).count()
     return [calendar.month_name[month.idxmax()], month.loc[month.idxmax()]]
 
@@ -54,8 +58,11 @@ def sigthing_length_of_ufo(data_df):
     """
     Given pandas dataframe, this method returns the avarage observation time of a UFO.
     """
+    # Cast column to numeric values and change the errors to NaN
     data_df['duration(seconds)'] = pd.to_numeric(
         data_df["duration(seconds)"], errors='coerce')
+    
+    # Calculate to minutes and seconds instead of sec
     total = data_df['duration(seconds)'].sum()
     minutes = (total / data_df.size / 60).astype(int)
     seconds = (total / data_df.size % 60).astype(int)
@@ -65,7 +72,8 @@ def days_probability_of_UFO_sighting(data_df):
     """
     Given pandas dataframe, this method will plot weekday probability of UFO sightings.
     """
-
+    # Counts all occurances of the given weekday, then gets the relative values (normalize = True) 
+    # Then runs through the values and times them by 100, so we have them in percent
     days = data_df['datetime'].dt.dayofweek.value_counts(normalize = True).sort_index().map(lambda d: d * 100)
     plotting.plot_days_probability_of_UFO_sighting(days)
 
