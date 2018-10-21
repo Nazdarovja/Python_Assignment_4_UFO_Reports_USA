@@ -22,9 +22,10 @@ def observations_per_year(data_df):
     """
     Given pandas dataframe, this method will create a plot of the count of sightings per year.
     """
-    print(type(data_df['datetime'][2]))
-    # mask = data_df[data_df['datetime']
-    # pd.value_counts()
+    ps = data_df['datetime'].groupby([data_df['datetime'].dt.year]).count()
+    values = ps.keys().tolist()
+    freq = ps.values.tolist()
+    plotting.plot_bar(values,freq,'year')
 
 
 def month_with_most_observations(data_df):
@@ -54,7 +55,10 @@ def sigthing_length_of_ufo(data_df):
     seconds = (total / data_df.size % 60).astype(int)
     return f'{minutes} minutes and {seconds} seconds'
 
-
+def days_probability_of_UFO_sighting(data_df):
+    days = data_df['datetime'].dt.dayofweek.value_counts(normalize = True).sort_index().map(lambda d: d * 100)
+    plotting.plot_days_probability_of_UFO_sighting(days)
+    
 def polarity_sentiment_plot(data_df):
     """
     Given pandas dataframe, runs Sentiment analasys on the comments of the experience,
