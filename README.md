@@ -25,24 +25,28 @@ In root of folder, in your terminal of choice, write:
 ## Results
 1. Stedet med flest UFO obserervationer er seattle med 525 observationer
 2. Se plot
+
     ![alt text](plot2.png)
 3. Måneden med flest observationer er ['July', 9520]
-4. light mentioned: 16565 times
-    triangle mentioned: 7865 times
-    circle mentioned: 7608 times
-    fireball mentioned: 6208 times
-    other mentioned: 5649 times
-    unknown mentioned: 5584 times
-    sphere mentioned: 5387 times
-    disk mentioned: 5213 times
-    oval mentioned: 3733 times
-    formation mentioned: 2457 times
+4.  - light mentioned: 16565 times
+    - triangle mentioned: 7865 times
+    - circle mentioned: 7608 times
+    - fireball mentioned: 6208 times
+    - other mentioned: 5649 times
+    - unknown mentioned: 5584 times
+    - sphere mentioned: 5387 times
+    - disk mentioned: 5213 times
+    - oval mentioned: 3733 times
+    - formation mentioned: 2457 times
 5. Gennemsnitlig UFO set tid: 13 minutes and 39 seconds
 6. Se plot
+
     ![alt text](plot6.png)
 7. Se plot
+
     ![alt text](plot7.png)
 8. Se plot
+
     ![alt text](plot8.png)
 
 
