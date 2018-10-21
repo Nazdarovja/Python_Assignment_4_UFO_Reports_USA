@@ -30,7 +30,7 @@ print(
     f'Stedet med flest UFO obserervationer er {res[0]} med {res[1]} observationer\n')
 
 #2. Hvordan har antallet af observationer udviklet sig over tid? ####### THIS SHOULD BE A PLOT ###########
-ps = statistics.observations_per_year(data_df)
+statistics.observations_per_year(data_df)
 
 # 3. Hvornår på året er der flest observationer?
 month = statistics.month_with_most_observations(data_df)
