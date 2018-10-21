@@ -47,6 +47,7 @@ def sigthing_length_of_ufo(data_df):
     return f'{minutes} minutes and {seconds} seconds'
 
 def days_probability_of_UFO_sighting(data_df):
+    # instead of 0 to 1, we chose to display the percentage from 0 to 100
     days = data_df['datetime'].dt.dayofweek.value_counts(normalize = True).sort_index().map(lambda d: d * 100)
     plotting.plot_days_probability_of_UFO_sighting(days)
 
