@@ -10,7 +10,7 @@ import json
 
 def most_UFOs_observed(data_df):
     """
-    Given pandas dataframe, return an list with city on first(0) index and count on second(1) index
+    Given pandas dataframe, returns a list with city on first(0) index and count on second(1) index
     """
     # Create list of unique country values
     df = data_df['city'].value_counts().reset_index()
@@ -20,7 +20,7 @@ def most_UFOs_observed(data_df):
 
 def observations_per_year(data_df):
     """
-    Given pandas dataframe, this method will create a plot of the count of sightings per year.
+    Given pandas dataframe, this method creatse a plot of the count of sightings per year.
     """
     ps = data_df['datetime'].groupby([data_df['datetime'].dt.year]).count()
     values = ps.keys().tolist()
@@ -29,13 +29,16 @@ def observations_per_year(data_df):
 
 
 def month_with_most_observations(data_df):
+    """
+    Given pandas dataframe, this method returns the month with most observations and the count of observations.
+    """
     month = data_df['datetime'].groupby([data_df['datetime'].dt.month]).count()
     return [calendar.month_name[month.idxmax()], month.loc[month.idxmax()]]
 
 
 def shape_of_UFO(data_df):
     """
-    Given pandas dataframe, this method will return the top 10 as a string.
+    Given pandas dataframe, this method returns the top 10 as a string.
     """
     # Counts all occurances of unique words in column, and indexes them
     df = data_df['shape'].value_counts().reset_index()
@@ -48,6 +51,9 @@ def shape_of_UFO(data_df):
 
 
 def sigthing_length_of_ufo(data_df):
+    """
+    Given pandas dataframe, this method returns the avarage observation time of a UFO.
+    """
     data_df['duration(seconds)'] = pd.to_numeric(
         data_df["duration(seconds)"], errors='coerce')
     total = data_df['duration(seconds)'].sum()
@@ -56,9 +62,13 @@ def sigthing_length_of_ufo(data_df):
     return f'{minutes} minutes and {seconds} seconds'
 
 def days_probability_of_UFO_sighting(data_df):
+    """
+    Given pandas dataframe, this method will plot weekday probability of UFO sightings.
+    """
+
     days = data_df['datetime'].dt.dayofweek.value_counts(normalize = True).sort_index().map(lambda d: d * 100)
     plotting.plot_days_probability_of_UFO_sighting(days)
-    
+
 def polarity_sentiment_plot(data_df):
     """
     Given pandas dataframe, runs Sentiment analasys on the comments of the experience,
@@ -85,7 +95,8 @@ def polarity_sentiment_plot(data_df):
 
 def UFO_observation_per_state(data_df):
     """
-    Given pandas dataframe, shows observations per state on a map using Folium; each state colorcoded according to amount of observations.
+    Given pandas dataframe, shows observations per state on a map using Folium; 
+    each state colorcoded according to amount of observations.
     """
 
     # load GeoJSON geometries for USA 

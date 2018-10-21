@@ -6,7 +6,7 @@
 ## Group
 Foolish Supermarket - Alexander (cph-ah353), Stanislav (cph-sn186), Mathias B. (cph-mb493), Mikkel L. (cph-ml474)
 
-## Project Deescription
+## Project Description
 This is a program written to interact with a specific dataset.
 URL to the dataset is in the code and is (https://github.com/planetsig/ufo-reports/raw/master/csv-data/ufo-scrubbed-geocoded-time-standardized.csv)
 
@@ -15,6 +15,7 @@ In root of folder, in your terminal of choice, write:
 
 > First install TextBlob library
 ```$pip install -U textblob ```
+
 > Then install folium
 ```$conda install -c conda-forge folium```
 
