@@ -15,6 +15,8 @@ In root of folder, in your terminal of choice, write:
 
 > First install TextBlob library
 ```$pip install -U textblob ```
+> Then install folium
+```$conda install -c conda-forge folium```
 
 > To run project
 ```python main.py```

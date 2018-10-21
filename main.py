@@ -59,7 +59,7 @@ print(f'Gennemsnitlig UFO set tid: {timespan}')
 # the negative numbers are the negative polarities
 # (else everyting is positive which makes no sense...)
 #######################################################
-statistics.polarity_sentiment_plot(data_df)
+# statistics.polarity_sentiment_plot(data_df)
 
 # # 8. Lav et plot, der viser antallet af ufo observationer pr stat i USA, og farvekode jeres resultat. 
 # # Mørk farve indiker mange observationer, og lys farve indiker få observationer.
