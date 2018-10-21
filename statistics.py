@@ -81,22 +81,25 @@ def polarity_sentiment_plot(data_df):
 
 def UFO_observation_per_state(data_df):
     """
-    Given pandas dataframe, shows observations per state on a map using Folium
+    Given pandas dataframe, shows observations per state on a map using Folium; each state colorcoded according to amount of observations.
     """
 
+    # load GeoJSON geometries for USA 
     with open('us-states.json') as data_file:
         my_USA_map = json.load(data_file)
-        print(my_USA_map)
 
-
+    # select data from USA only, and sort/count observation by state
     from_us = data_df[data_df["country"] == "us"]
     df = from_us['state'].value_counts().reset_index()
 
+    # instantiate a Folium map 
     map = folium.Map(location=[48, -102], zoom_start=5)
 
+    # apply geoJSON overlay on the map
     map.choropleth(geo_data=my_USA_map, data=df,
-                   columns=['state'],
+                   columns=['index','state'],  
                    key_on='feature.id',
                    fill_color='YlGn', fill_opacity=0.7, line_opacity=0.2)
 
+    # save map as html
     map.save('index.html')
