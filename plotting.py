@@ -1,5 +1,12 @@
 import matplotlib.pyplot as plt
 
+def plot_days_probability_of_UFO_sighting(days):
+    x_values = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun']  
+    plt.xlabel('days')
+    plt.ylabel('percentage')
+    plt.bar(x_values,days)
+    plt.show()
+
 def plot_sentiment_polarity_per_case(polarity, subjectivity):
     """
     Given a list of ploarity values and subjectivity values, creates a plot for each index.

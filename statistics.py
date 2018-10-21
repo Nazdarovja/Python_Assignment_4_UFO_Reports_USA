@@ -46,6 +46,9 @@ def sigthing_length_of_ufo(data_df):
     seconds = (total / data_df.size % 60).astype(int)
     return f'{minutes} minutes and {seconds} seconds'
 
+def days_probability_of_UFO_sighting(data_df):
+    days = data_df['datetime'].dt.dayofweek.value_counts(normalize = True).sort_index().map(lambda d: d * 100)
+    plotting.plot_days_probability_of_UFO_sighting(days)
 
 
 def polarity_sentiment_plot(data_df):

@@ -48,6 +48,8 @@ print(f'Gennemsnitlig tid: {timespan}')
 #  6. På hvilke dage er det sandsynligt at se ufoer(i procentvis fordeling)?
 # x i plottet er mandag til søndag.
 # y i plottet er 0 til 1.
+statistics.days_probability_of_UFO_sighting(data_df)
+
 
 # 7. Lav en graf over polaritet og sentiment.
 #######################################################
