@@ -12,11 +12,6 @@ if __name__ == '__main__':
     # Download file
     downloader.download_as_file(file_name)
 
-    ##    dtype={'datetime': str, 'city': str, 'state': str, 'country': str,
-            #  'shape': str, 'duration (seconds)': np.float64, 'duration (hours/min)' : str,
-            #  'comments' : str, 'date posted': str, 'latitude': float, 'longitude': float},
-            #  date_parser = dt_conv , error_bad_lines=False
-    # Get file as pandas csv and add missing header column 11/20/1995 19:12
     data_df = pd.read_csv(file_name, low_memory=False, encoding='utf8',
                           names=['datetime', 'city', 'state', 'country',
                                  'shape', 'duration(seconds)', 'duration (hours/min)',
@@ -50,18 +45,10 @@ timespan = statistics.sigthing_length_of_ufo(data_df)
 print(f'Gennemsnitlig UFO set tid: {timespan}')
 
 # #  6. På hvilke dage er det sandsynligt at se ufoer(i procentvis fordeling)?
-# # x i plottet er mandag til søndag.
-# # y i plottet er 0 til 1.
 statistics.days_probability_of_UFO_sighting(data_df)
 
 # # 7. Lav en graf over polaritet og sentiment.
-#######################################################
-# We/I have chosen to do y-axis from -1 to 1 because, 
-# the negative numbers are the negative polarities
-# (else everyting is positive which makes no sense...)
-#######################################################
 statistics.polarity_sentiment_plot(data_df)
 
 # # 8. Lav et plot, der viser antallet af ufo observationer pr stat i USA, og farvekode jeres resultat. 
-# # Mørk farve indiker mange observationer, og lys farve indiker få observationer.
 statistics.UFO_observation_per_state(data_df)
